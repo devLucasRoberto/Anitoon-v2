@@ -54,10 +54,19 @@ export const MoreButton = styled.button`
   margin-top: 0.187rem;
 `
 
-export const IconMore = styled(FiMoreVertical)`
+interface IconMoreProps {
+  more: boolean
+}
+
+export const IconMore = styled(FiMoreVertical)<IconMoreProps>`
   height: 1.5rem;
   width: 1.5rem;
-  color: var(--white);
+  color: var(${props => (props.more ? '--pink' : '--white')});
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--pink);
+  }
 `
 export const OverlayCloseMore = styled.div`
   background: transparent;
@@ -93,6 +102,6 @@ export const MoreContent = styled.div`
   }
 
   > li + li {
-    margin-top: 0.312rem;
+    margin-top: 0.35rem;
   }
 `

@@ -15,7 +15,7 @@ import { NavLink } from '../NavLink'
 export function Header() {
   const [more, setMore] = useState(false)
 
-  function showMore(show: boolean) {
+  async function showMore(show: boolean) {
     setMore(show)
   }
 
@@ -40,7 +40,7 @@ export function Header() {
 
           <div>
             <MoreButton onClick={() => showMore(true)}>
-              <IconMore />
+              <IconMore more={more} />
             </MoreButton>
             {more && (
               <>
