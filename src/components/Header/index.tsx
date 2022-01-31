@@ -3,7 +3,6 @@ import {
   Content,
   Logo,
   Nav,
-  NavLink,
   MoreButton,
   IconMore,
   OverlayCloseMore,
@@ -11,12 +10,10 @@ import {
 } from './styles'
 import Link from 'next/link'
 import { useState } from 'react'
-import { useRouter } from 'next/router'
+import { NavLink } from '../NavLink'
 
 export function Header() {
   const [more, setMore] = useState(false)
-
-  const { asPath } = useRouter()
 
   function showMore(show: boolean) {
     setMore(show)
@@ -32,21 +29,13 @@ export function Header() {
         </Logo>
         <Nav>
           <ul>
-            <li>
-              <Link href="/">
-                <NavLink activeLink={asPath === '/'}>Início</NavLink>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <NavLink>Lista de Animes</NavLink>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <NavLink>Calendário</NavLink>
-              </Link>
-            </li>
+            <NavLink href="/" name="Início" activeLink />
+            <NavLink
+              href="/lista-de-animes"
+              name="Lista de animes"
+              activeLink
+            />
+            <NavLink href="/temporada" name="Animes da Temporada" activeLink />
           </ul>
 
           <div>
@@ -57,8 +46,21 @@ export function Header() {
               <>
                 <OverlayCloseMore onClick={() => showMore(false)} />
                 <MoreContent>
-                  <NavLink activeLink={asPath === '/'}>Temporadas</NavLink>
-                  <NavLink>Contato</NavLink>
+                  <NavLink
+                    href="/temporada"
+                    name="Animes da Temporada"
+                    activeLink
+                  />
+                  <NavLink
+                    href="/temporada"
+                    name="Animes da Temporada"
+                    activeLink
+                  />
+                  <NavLink
+                    href="/temporada"
+                    name="Animes da Temporada"
+                    activeLink
+                  />
                 </MoreContent>
               </>
             )}

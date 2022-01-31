@@ -48,20 +48,6 @@ export const Nav = styled.div`
     justify-content: center;
   }
 `
-interface NavLinkProps {
-  activeLink?: boolean
-}
-
-export const NavLink = styled.a<NavLinkProps>`
-  color: var(${props => (props.activeLink ? '--pink' : '--white')});
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.2s;
-
-  &:hover {
-    color: var(--pink);
-  }
-`
 
 export const MoreButton = styled.button`
   cursor: pointer;
@@ -93,8 +79,9 @@ export const MoreContent = styled.div`
   color: var(--white);
   font-size: 1rem;
   text-align: center;
-  padding: 0.625rem 0.312rem 0.625rem 0.312rem;
+  padding: 0.625rem;
   border-radius: 0.437rem;
+  list-style-type: none;
 
   > a {
     cursor: pointer;
@@ -105,7 +92,7 @@ export const MoreContent = styled.div`
     }
   }
 
-  > a + a {
+  > li + li {
     margin-top: 0.312rem;
   }
 `
