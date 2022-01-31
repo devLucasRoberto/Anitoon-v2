@@ -43,7 +43,7 @@ export const Nav = styled.div`
     }
   }
 
-  > div {
+  div {
     display: flex;
     justify-content: center;
   }
