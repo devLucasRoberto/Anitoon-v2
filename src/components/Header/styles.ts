@@ -105,3 +105,15 @@ export const MoreContent = styled.div`
     margin-top: 0.35rem;
   }
 `
+export const Box = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`
+
+export const BoxSS = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+`
