@@ -16,8 +16,4 @@ export const Content = styled.div`
   grid-template-columns: repeat(4, 1fr);
   column-gap: 1.875rem;
   row-gap: 0.812rem;
-
-  > div {
-    background: red;
-  }
 `
