@@ -1,10 +1,11 @@
 import { Header } from '../components/Header'
+import { NewEpisodes } from '../components/NewEpisodes'
 
 export default function Home() {
   return (
     <>
       <Header />
-      <h1>Hello world</h1>
+      <NewEpisodes />
     </>
   )
 }
