@@ -1,3 +1,9 @@
+import { Container, Input, Button } from './styles'
+
 export function Search() {
-  return <h1>Search</h1>
+  return (
+    <Container>
+      <Input type="text" placeholder="Buscar Animes"></Input>
+    </Container>
+  )
 }
