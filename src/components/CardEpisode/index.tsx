@@ -1,7 +1,10 @@
 import Link from 'next/link'
+import { useState } from 'react'
 import {
   Container,
   Box,
+  PlayBox,
+  PlayIcon,
   Img,
   Tipo,
   Ep,
@@ -26,12 +29,17 @@ interface CardEpisodeProps {
 }
 
 export function CardEpisode({ episode }: CardEpisodeProps) {
+  const [hover, setHover] = useState<boolean>(true)
+
   return (
     <Container>
       <Link href={`videos/${episode.slug}`} passHref>
         <a>
           <Box>
             <Img src={`img/${episode.img}`} alt={episode.title} />
+            <PlayBox>
+              <PlayIcon />
+            </PlayBox>
             <div>
               <section>
                 <Tipo>{episode.tipo}</Tipo>

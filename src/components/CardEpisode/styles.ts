@@ -1,11 +1,21 @@
 import styled from 'styled-components'
+import { ImPlay3 } from 'react-icons/im'
 
-export const Container = styled.div`
-  cursor: pointer;
+export const PlayBox = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  opacity: 0;
+  align-items: center;
+  justify-content: center;
 
-  a {
-    text-decoration: none;
-  }
+  color: white;
+  transition: opacity 0.3s;
+`
+
+export const PlayIcon = styled(ImPlay3)`
+  width: 30px;
+  height: 30px;
 `
 export const Box = styled.div`
   position: relative;
@@ -16,9 +26,10 @@ export const Box = styled.div`
     top: 0;
     z-index: 1;
     color: var(--white);
-    height: 100%;
     width: 100%;
+    height: calc(100% - 2.6px);
     font-size: 0.875rem;
+    transition: background 0.3s;
 
     > section {
       display: flex;
@@ -34,9 +45,28 @@ export const Box = styled.div`
     }
   }
 `
+export const Container = styled.div`
+  cursor: pointer;
+
+  a {
+    text-decoration: none;
+  }
+
+  &:hover ${PlayBox} {
+    display: flex;
+    opacity: 1;
+  }
+
+  &:hover ${Box} {
+    div {
+      background: rgb(68, 71, 90, 0.1);
+    }
+  }
+`
+
 export const Img = styled.img`
   width: 100%;
-  max-height: 162px;
+  max-height: 10.125rem;
 `
 export const Tipo = styled.p``
 export const Ep = styled.p``
