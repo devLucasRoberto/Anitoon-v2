@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {
   Container,
   Box,
@@ -13,16 +14,26 @@ import {
 export function CardNewEpisode() {
   return (
     <Container>
-      <Box>
-        <Img src="img/one-piece-01.png" alt="" />
-        <Tipo>Legendado</Tipo>
-        <Ep>900</Ep>
-        <Time>23:50</Time>
-      </Box>
-      <Info>
-        <Title>One Piece</Title>
-        <Date>31 de jul de 2021</Date>
-      </Info>
+      <Link href="/" passHref>
+        <a>
+          <Box>
+            <Img src="img/one-piece-01.png" alt="" />
+            <div>
+              <section>
+                <Tipo>Legendado</Tipo>
+                <Ep>900</Ep>
+              </section>
+              <div>
+                <Time>23:50</Time>
+              </div>
+            </div>
+          </Box>
+          <Info>
+            <Title>One Piece</Title>
+            <Date>31 de jul de 2021</Date>
+          </Info>
+        </a>
+      </Link>
     </Container>
   )
 }

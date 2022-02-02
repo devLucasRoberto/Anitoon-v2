@@ -71,7 +71,7 @@ export const IconMore = styled(FiMoreVertical)<IconMoreProps>`
 export const OverlayCloseMore = styled.div`
   background: transparent;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
@@ -84,7 +84,7 @@ export const MoreContent = styled.div`
   margin-top: 2.18rem;
   background: var(--gray-300);
   flex-direction: column;
-  z-index: 3;
+  z-index: 11;
   color: var(--white);
   font-size: 1rem;
   text-align: center;
