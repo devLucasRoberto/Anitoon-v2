@@ -97,7 +97,7 @@
       "tipo": "Legendado",
       "time": "23:50",
       "ep": "02",
-      "img": "one-piece-01.png",
+      "img": "one-piece-02.png",
       "createdAt": "2021-03-18T00:00:00.000Z"
     },
     {
@@ -108,7 +108,7 @@
       "tipo": "Legendado",
       "time": "23:50",
       "ep": "03",
-      "img": "one-piece-01.png",
+      "img": "one-piece-03.png",
       "createdAt": "2021-03-18T00:00:00.000Z"
     },
     {
@@ -119,7 +119,7 @@
       "tipo": "Legendado",
       "time": "23:50",
       "ep": "04",
-      "img": "one-piece-01.png",
+      "img": "one-piece-04.png",
       "createdAt": "2021-03-18T00:00:00.000Z"
     },
     {
@@ -130,7 +130,7 @@
       "tipo": "Legendado",
       "time": "23:50",
       "ep": "05",
-      "img": "one-piece-01.png",
+      "img": "one-piece-02.png",
       "createdAt": "2021-03-18T00:00:00.000Z"
     },
     {
@@ -141,7 +141,7 @@
       "tipo": "Legendado",
       "time": "23:50",
       "ep": "06",
-      "img": "one-piece-01.png",
+      "img": "one-piece-04.png",
       "createdAt": "2021-03-18T00:00:00.000Z"
     },
     {
@@ -163,7 +163,7 @@
       "tipo": "Legendado",
       "time": "23:50",
       "ep": "08",
-      "img": "one-piece-01.png",
+      "img": "one-piece-03.png",
       "createdAt": "2021-03-18T00:00:00.000Z"
     }
   ]
