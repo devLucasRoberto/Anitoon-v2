@@ -11,7 +11,7 @@ import {
   Date
 } from './styles'
 
-export function CardNewEpisode() {
+export function CardEpisode() {
   return (
     <Container>
       <Link href="/" passHref>

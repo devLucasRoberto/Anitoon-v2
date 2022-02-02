@@ -1,4 +1,4 @@
-import { CardNewEpisode } from '../CardNewEpisode'
+import { CardEpisode } from '../CardEpisode'
 import { Container, Title, Content } from './styles'
 
 export function NewEpisodes() {
@@ -6,11 +6,11 @@ export function NewEpisodes() {
     <Container>
       <Title>Lançamentos</Title>
       <Content>
-        <CardNewEpisode />
-        <CardNewEpisode />
-        <CardNewEpisode />
-        <CardNewEpisode />
-        <CardNewEpisode />
+        <CardEpisode />
+        <CardEpisode />
+        <CardEpisode />
+        <CardEpisode />
+        <CardEpisode />
       </Content>
     </Container>
   )
