@@ -68,7 +68,7 @@
       "Status Atual": "Em Exibição",
       "Autor": "Eiichiro Oda",
       "Estúdio": "Toei Animation",
-      "Tipo": "Dublado e Legendado",
+      "Tipo": "Legendado",
       "Temporada": "Outono",
       "Classificação": "14 anos",
       "Data de Exibição": "20 de out. de 1999",
@@ -80,59 +80,91 @@
   "episodios": [
     {
       "id": 1,
+      "slug": "one-piece-01",
       "animeId": 1,
       "title": "One Piece",
+      "tipo": "Legendado",
+      "time": "23:50",
       "ep": "01",
-      "img": "one-piece-01.png"
+      "img": "one-piece-01.png",
+      "createdAt": "2021-03-18T00:00:00.000Z"
     },
     {
       "id": 2,
+      "slug": "one-piece-02",
       "animeId": 1,
       "title": "One Piece",
+      "tipo": "Legendado",
+      "time": "23:50",
       "ep": "02",
-      "img": "one-piece-01.png"
+      "img": "one-piece-01.png",
+      "createdAt": "2021-03-18T00:00:00.000Z"
     },
     {
       "id": 3,
+      "slug": "one-piece-03",
       "animeId": 1,
       "title": "One Piece",
+      "tipo": "Legendado",
+      "time": "23:50",
       "ep": "03",
-      "img": "one-piece-01.png"
+      "img": "one-piece-01.png",
+      "createdAt": "2021-03-18T00:00:00.000Z"
     },
     {
       "id": 4,
+      "slug": "one-piece-04",
       "animeId": 1,
       "title": "One Piece",
+      "tipo": "Legendado",
+      "time": "23:50",
       "ep": "04",
-      "img": "one-piece-01.png"
+      "img": "one-piece-01.png",
+      "createdAt": "2021-03-18T00:00:00.000Z"
     },
     {
       "id": 5,
+      "slug": "one-piece-05",
       "animeId": 1,
       "title": "One Piece",
+      "tipo": "Legendado",
+      "time": "23:50",
       "ep": "05",
-      "img": "one-piece-01.png"
+      "img": "one-piece-01.png",
+      "createdAt": "2021-03-18T00:00:00.000Z"
     },
     {
       "id": 6,
+      "slug": "one-piece-06",
       "animeId": 1,
       "title": "One Piece",
+      "tipo": "Legendado",
+      "time": "23:50",
       "ep": "06",
-      "img": "one-piece-01.png"
+      "img": "one-piece-01.png",
+      "createdAt": "2021-03-18T00:00:00.000Z"
     },
     {
       "id": 7,
+      "slug": "one-piece-07",
       "animeId": 1,
       "title": "One Piece",
+      "tipo": "Legendado",
+      "time": "23:50",
       "ep": "07",
-      "img": "one-piece-01.png"
+      "img": "one-piece-01.png",
+      "createdAt": "2021-03-18T00:00:00.000Z"
     },
     {
       "id": 8,
+      "slug": "one-piece-08",
       "animeId": 1,
       "title": "One Piece",
+      "tipo": "Legendado",
+      "time": "23:50",
       "ep": "08",
-      "img": "one-piece-01.png"
+      "img": "one-piece-01.png",
+      "createdAt": "2021-03-18T00:00:00.000Z"
     }
   ]
 }

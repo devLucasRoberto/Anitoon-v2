@@ -11,26 +11,40 @@ import {
   Date
 } from './styles'
 
-export function CardEpisode() {
+interface CardEpisodeProps {
+  episode: {
+    id: number
+    slug: string
+    animeId: number
+    title: string
+    tipo: string
+    time: string
+    ep: string
+    img: string
+    createdAt: string
+  }
+}
+
+export function CardEpisode({ episode }: CardEpisodeProps) {
   return (
     <Container>
-      <Link href="/" passHref>
+      <Link href={`videos/${episode.slug}`} passHref>
         <a>
           <Box>
-            <Img src="img/one-piece-01.png" alt="" />
+            <Img src={`img/${episode.img}`} alt={episode.title} />
             <div>
               <section>
-                <Tipo>Legendado</Tipo>
-                <Ep>900</Ep>
+                <Tipo>{episode.tipo}</Tipo>
+                <Ep>{episode.ep}</Ep>
               </section>
               <div>
-                <Time>23:50</Time>
+                <Time>{episode.time}</Time>
               </div>
             </div>
           </Box>
           <Info>
-            <Title>One Piece</Title>
-            <Date>31 de jul de 2021</Date>
+            <Title>{episode.title}</Title>
+            <Date>{episode.createdAt}</Date>
           </Info>
         </a>
       </Link>
