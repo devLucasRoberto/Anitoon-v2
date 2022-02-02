@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import { useState } from 'react'
 import { Header } from '../components/Header'
 import { NewEpisodes } from '../components/NewEpisodes'
 import { api } from '../services/api'
@@ -29,7 +30,9 @@ export default function Home({ newEpisodes }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const newEpisodesResponse = await api.get<NewEpisodes[]>('episodios')
+  const newEpisodesResponse = await api.get<NewEpisodes[]>(
+    `episodios?_sort=id&_order=desc&_page=1&_limit=4`
+  )
 
   const newEpisodes = newEpisodesResponse.data.map(episode => {
     return {

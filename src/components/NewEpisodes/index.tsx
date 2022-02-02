@@ -1,5 +1,7 @@
+import { useState } from 'react'
+import { api } from '../../services/api'
 import { CardEpisode } from '../CardEpisode'
-import { Container, Title, Content } from './styles'
+import { Container, Title, Content, More } from './styles'
 
 interface NewEpisodesProps {
   newEpisodes: Array<{
@@ -16,14 +18,45 @@ interface NewEpisodesProps {
 }
 
 export function NewEpisodes({ newEpisodes }: NewEpisodesProps) {
+  const [episodes, setEpisodes] = useState(newEpisodes)
+  const [page, setPage] = useState(2)
+
+  async function handlePagination() {
+    const newEpisodesResponse = await api.get(
+      `episodios?_sort=id&_order=desc&_page=${page}&_limit=4`
+    )
+
+    const EpisodesFormatted = newEpisodesResponse.data.map((episode: any) => {
+      return {
+        id: episode.id,
+        slug: episode.slug,
+        animeId: episode.animeId,
+        title: episode.title,
+        tipo: episode.tipo,
+        time: episode.time,
+        ep: episode.ep,
+        img: episode.img,
+        createdAt: new Intl.DateTimeFormat('pt-BR', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        }).format(new Date(episode.createdAt))
+      }
+    })
+
+    setEpisodes([...episodes, ...EpisodesFormatted])
+    setPage(page + 1)
+  }
+
   return (
     <Container>
       <Title>Lançamentos</Title>
       <Content>
-        {newEpisodes.map(episode => (
-          <CardEpisode episode={episode} />
+        {episodes.map(episode => (
+          <CardEpisode key={episode.id} episode={episode} />
         ))}
       </Content>
+      <More onClick={() => handlePagination()}>Carregar mais...</More>
     </Container>
   )
 }

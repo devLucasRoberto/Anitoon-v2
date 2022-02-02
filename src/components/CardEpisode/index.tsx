@@ -29,8 +29,6 @@ interface CardEpisodeProps {
 }
 
 export function CardEpisode({ episode }: CardEpisodeProps) {
-  const [hover, setHover] = useState<boolean>(true)
-
   return (
     <Container>
       <Link href={`videos/${episode.slug}`} passHref>

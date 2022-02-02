@@ -165,6 +165,50 @@
       "ep": "08",
       "img": "one-piece-03.png",
       "createdAt": "2021-03-18T00:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "slug": "one-piece-09",
+      "animeId": 1,
+      "title": "One Piece",
+      "tipo": "Legendado",
+      "time": "23:50",
+      "ep": "09",
+      "img": "one-piece-01.png",
+      "createdAt": "2021-03-18T00:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "slug": "one-piece-10",
+      "animeId": 1,
+      "title": "One Piece",
+      "tipo": "Legendado",
+      "time": "23:50",
+      "ep": "10",
+      "img": "one-piece-03.png",
+      "createdAt": "2021-03-18T00:00:00.000Z"
+    },
+    {
+      "id": 11,
+      "slug": "one-piece-11",
+      "animeId": 1,
+      "title": "One Piece",
+      "tipo": "Legendado",
+      "time": "23:50",
+      "ep": "11",
+      "img": "one-piece-01.png",
+      "createdAt": "2021-03-18T00:00:00.000Z"
+    },
+    {
+      "id": 12,
+      "slug": "one-piece-12",
+      "animeId": 1,
+      "title": "One Piece",
+      "tipo": "Legendado",
+      "time": "23:50",
+      "ep": "12",
+      "img": "one-piece-03.png",
+      "createdAt": "2021-03-18T00:00:00.000Z"
     }
   ]
 }
