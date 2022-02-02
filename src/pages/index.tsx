@@ -12,7 +12,7 @@ type NewEpisodes = {
   time: string
   ep: string
   img: string
-  createdAt: string
+  createdAt: number
 }
 
 interface HomeProps {
@@ -29,9 +29,25 @@ export default function Home({ newEpisodes }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const newEpisodesResponse = await api.get<NewEpisodes>('episodios')
+  const newEpisodesResponse = await api.get<NewEpisodes[]>('episodios')
 
-  const newEpisodes = newEpisodesResponse.data
+  const newEpisodes = newEpisodesResponse.data.map(episode => {
+    return {
+      id: episode.id,
+      slug: episode.slug,
+      animeId: episode.animeId,
+      title: episode.title,
+      tipo: episode.tipo,
+      time: episode.time,
+      ep: episode.ep,
+      img: episode.img,
+      createdAt: new Intl.DateTimeFormat('pt-BR', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
+      }).format(new Date(episode.createdAt))
+    }
+  })
 
   return {
     props: { newEpisodes },

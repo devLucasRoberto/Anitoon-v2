@@ -21,7 +21,7 @@ interface CardEpisodeProps {
     time: string
     ep: string
     img: string
-    createdAt: string
+    createdAt: number
   }
 }
 
