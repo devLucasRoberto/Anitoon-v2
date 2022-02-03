@@ -1,8 +1,10 @@
 import { GetStaticProps } from 'next'
-import { useState } from 'react'
 import { Header } from '../components/Header'
 import { NewEpisodes } from '../components/NewEpisodes'
 import { api } from '../services/api'
+import { ContainerHighlight, ContentHighlight, Title } from './styles'
+import Slider from 'react-slick'
+import { CardHighlight } from '../components/CardHighlight'
 
 type NewEpisodes = {
   id: number
@@ -21,9 +23,41 @@ interface HomeProps {
 }
 
 export default function Home({ newEpisodes }: HomeProps) {
+  var settings = {
+    infinite: true,
+    // autoplay: true,
+    // autoplaySpeed: 2000,
+    slidesToShow: 4,
+    slidesToScroll: 1
+  }
   return (
     <>
       <Header />
+      <ContainerHighlight>
+        <Title>Destaques</Title>
+        <ContentHighlight>
+          <Slider {...settings}>
+            <div>
+              <CardHighlight />
+            </div>
+            <div>
+              <CardHighlight />
+            </div>
+            <div>
+              <CardHighlight />
+            </div>
+            <div>
+              <CardHighlight />
+            </div>
+            <div>
+              <CardHighlight />
+            </div>
+            <div>
+              <CardHighlight />
+            </div>
+          </Slider>
+        </ContentHighlight>
+      </ContainerHighlight>
       <NewEpisodes newEpisodes={newEpisodes} />
     </>
   )
