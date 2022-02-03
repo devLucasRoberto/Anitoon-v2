@@ -21,34 +21,41 @@ export function NewEpisodes({ newEpisodes }: NewEpisodesProps) {
   const [episodes, setEpisodes] = useState(newEpisodes)
   const [page, setPage] = useState(2)
   const [loading, setLoading] = useState(false)
+  const [haveEpisodes, setHaveEpisodes] = useState(true)
 
   async function handlePagination() {
     setLoading(true)
+
     const newEpisodesResponse = await api.get(
       `episodios?_sort=id&_order=desc&_page=${page}&_limit=4`
     )
 
-    const EpisodesFormatted = newEpisodesResponse.data.map((episode: any) => {
-      return {
-        id: episode.id,
-        slug: episode.slug,
-        animeId: episode.animeId,
-        title: episode.title,
-        tipo: episode.tipo,
-        time: episode.time,
-        ep: episode.ep,
-        img: episode.img,
-        createdAt: new Intl.DateTimeFormat('pt-BR', {
-          day: '2-digit',
-          month: 'short',
-          year: 'numeric'
-        }).format(new Date(episode.createdAt))
-      }
-    })
+    if (newEpisodesResponse.data.length > 0) {
+      const EpisodesFormatted = newEpisodesResponse.data.map((episode: any) => {
+        return {
+          id: episode.id,
+          slug: episode.slug,
+          animeId: episode.animeId,
+          title: episode.title,
+          tipo: episode.tipo,
+          time: episode.time,
+          ep: episode.ep,
+          img: episode.img,
+          createdAt: new Intl.DateTimeFormat('pt-BR', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric'
+          }).format(new Date(episode.createdAt))
+        }
+      })
 
-    setEpisodes([...episodes, ...EpisodesFormatted])
-    setLoading(false)
-    setPage(page + 1)
+      setEpisodes([...episodes, ...EpisodesFormatted])
+      setLoading(false)
+      setPage(page + 1)
+    } else {
+      setLoading(false)
+      setHaveEpisodes(false)
+    }
   }
 
   return (
@@ -60,9 +67,14 @@ export function NewEpisodes({ newEpisodes }: NewEpisodesProps) {
         ))}
       </Content>
       {loading ? (
-        <MoreButton disabled>Carregando...</MoreButton>
+        <MoreButton disabled haveEpisodes>
+          Carregando...
+        </MoreButton>
       ) : (
-        <MoreButton onClick={() => handlePagination()}>
+        <MoreButton
+          onClick={() => handlePagination()}
+          haveEpisodes={haveEpisodes}
+        >
           Carregar mais
         </MoreButton>
       )}

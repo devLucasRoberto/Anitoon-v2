@@ -18,12 +18,16 @@ export const Content = styled.div`
   column-gap: 1.875rem;
   row-gap: 0.812rem;
 `
-export const MoreButton = styled.button`
+interface MoreButton {
+  haveEpisodes?: boolean
+}
+
+export const MoreButton = styled.button<MoreButton>`
   color: var(--pink);
   margin-top: 2rem;
   font-size: 1rem;
   font-weight: 500;
-  cursor: pointer;
+  display: ${props => !props.haveEpisodes && 'none'};
   transition: color 0.2s;
 
   &:hover {
