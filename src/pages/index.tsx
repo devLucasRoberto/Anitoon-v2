@@ -25,8 +25,8 @@ interface HomeProps {
 export default function Home({ newEpisodes }: HomeProps) {
   var settings = {
     infinite: true,
-    // autoplay: true,
-    // autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 4000,
     slidesToShow: 4,
     slidesToScroll: 1
   }
