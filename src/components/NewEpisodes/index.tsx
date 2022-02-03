@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { api } from '../../services/api'
 import { CardEpisode } from '../CardEpisode'
-import { Container, Title, Content, More } from './styles'
+import { Container, Title, Content, MoreButton } from './styles'
 
 interface NewEpisodesProps {
   newEpisodes: Array<{
@@ -20,8 +20,10 @@ interface NewEpisodesProps {
 export function NewEpisodes({ newEpisodes }: NewEpisodesProps) {
   const [episodes, setEpisodes] = useState(newEpisodes)
   const [page, setPage] = useState(2)
+  const [loading, setLoading] = useState(false)
 
   async function handlePagination() {
+    setLoading(true)
     const newEpisodesResponse = await api.get(
       `episodios?_sort=id&_order=desc&_page=${page}&_limit=4`
     )
@@ -45,6 +47,7 @@ export function NewEpisodes({ newEpisodes }: NewEpisodesProps) {
     })
 
     setEpisodes([...episodes, ...EpisodesFormatted])
+    setLoading(false)
     setPage(page + 1)
   }
 
@@ -56,7 +59,13 @@ export function NewEpisodes({ newEpisodes }: NewEpisodesProps) {
           <CardEpisode key={episode.id} episode={episode} />
         ))}
       </Content>
-      <More onClick={() => handlePagination()}>Carregar mais...</More>
+      {loading ? (
+        <MoreButton disabled>Carregando...</MoreButton>
+      ) : (
+        <MoreButton onClick={() => handlePagination()}>
+          Carregar mais
+        </MoreButton>
+      )}
     </Container>
   )
 }

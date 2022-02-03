@@ -18,10 +18,20 @@ export const Content = styled.div`
   column-gap: 1.875rem;
   row-gap: 0.812rem;
 `
-export const More = styled.button`
+export const MoreButton = styled.button`
   color: var(--pink);
   margin-top: 2rem;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--white);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--pink);
+  }
 `
