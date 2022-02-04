@@ -19,10 +19,6 @@ import { Search } from '../Search'
 export function Header() {
   const [more, setMore] = useState(false)
 
-  async function showMore(show: boolean) {
-    setMore(show)
-  }
-
   return (
     <Container>
       <Content>
@@ -48,12 +44,12 @@ export function Header() {
             </ul>
 
             <div>
-              <MoreButton onClick={() => showMore(true)}>
+              <MoreButton onClick={() => setMore(true)}>
                 <IconMore more={more} />
               </MoreButton>
               {more && (
                 <>
-                  <OverlayCloseMore onClick={() => showMore(false)} />
+                  <OverlayCloseMore onClick={() => setMore(false)} />
                   <MoreContent>
                     <NavLink
                       href="/temporada"
