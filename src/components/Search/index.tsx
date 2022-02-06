@@ -1,4 +1,4 @@
-import { Container, Input, Button } from './styles'
+import { Container, Input } from './styles'
 
 export function Search() {
   return (

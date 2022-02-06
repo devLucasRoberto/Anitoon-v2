@@ -16,5 +16,3 @@ export const Input = styled.input`
     color: var(--white);
   }
 `
-
-export const Button = styled.button``
