@@ -59,7 +59,7 @@ export const Container = styled.div`
 
   &:hover ${Box} {
     div {
-      background: rgb(68, 71, 90, 0.1);
+      background: rgb(68, 71, 90, 0.2);
     }
   }
 `

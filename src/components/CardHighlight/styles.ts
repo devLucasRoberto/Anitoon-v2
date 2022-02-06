@@ -22,6 +22,11 @@ export const HoverInfo = styled.div`
 
   p {
     margin: 5px 0;
+    line-height: 1.4;
+
+    span {
+      font-weight: bold;
+    }
   }
 `
 export const Container = styled.div`

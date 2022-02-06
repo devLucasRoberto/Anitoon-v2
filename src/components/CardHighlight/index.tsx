@@ -11,17 +11,33 @@ export function CardHighlight() {
             <Title>One Piece</Title>
             <HoverInfo>
               <p>
-                Gêneros: Ação, Aventura, Comédia, Drama, Fantasia, Shounen,
-                Super Poder
+                <span>Gêneros:</span> Ação, Aventura, Comédia, Drama, Fantasia,
+                Shounen, Super Poder
               </p>
-              <p>Episódios: 1001 </p>
-              <p>Status Atual: Em Exibição </p>
-              <p>Autor: Eiichiro Oda </p>
-              <p>Estúdio: Toei Animation </p>
-              <p>Tipo: Dublado e Legendado </p>
-              <p>Temporada: Outono </p>
-              <p>Data de Exibição: 20 de out. de 1999 </p>
-              <p>Nota:  8.61 (891.6 mil votos)</p>
+              <p>
+                <span>Episódios:</span> 1001{' '}
+              </p>
+              <p>
+                <span>Status Atual:</span> Em Exibição{' '}
+              </p>
+              <p>
+                <span>Autor:</span> Eiichiro Oda{' '}
+              </p>
+              <p>
+                <span>Estúdio:</span> Toei Animation{' '}
+              </p>
+              <p>
+                <span>Tipo:</span> Dublado e Legendado{' '}
+              </p>
+              <p>
+                <span>Temporada:</span> Outono{' '}
+              </p>
+              <p>
+                <span>Data de Exibição:</span> 20 de out. de 1999{' '}
+              </p>
+              <p>
+                <span>Nota:</span>  8.61 (891.6 mil votos)
+              </p>
             </HoverInfo>
           </Info>
         </a>

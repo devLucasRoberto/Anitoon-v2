@@ -30,7 +30,7 @@ interface ContainerSearchProps {
 
 export const ContainerSearch = styled.div<ContainerSearchProps>`
   background: var(--gray-300);
-  width: 21.87rem;
+  width: 25rem;
   height: 25rem;
   z-index: 11;
   position: absolute;
@@ -52,6 +52,12 @@ export const ContainerSearch = styled.div<ContainerSearchProps>`
     border: 2px solid var(--gray-900);
   }
 `
+export const Loading = styled.div`
+  width: 100%;
+  text-align: center;
+  padding: 0.625rem;
+`
+
 export const CloseSearch = styled.div`
   background: transparent;
   position: absolute;
@@ -65,17 +71,32 @@ export const CloseSearch = styled.div`
 `
 
 export const ContentSearch = styled.div`
-  display: flex;
   padding: 0.625rem;
+  transition: background 0.2s;
+
+  &:hover {
+    background: var(--gray-900);
+  }
+
+  a {
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+  }
 `
 export const Img = styled.img`
-  max-height: 9.375rem;
+  max-height: 9.7rem;
 `
 export const Info = styled.div`
-  font-size: 0.687rem;
+  font-size: 0.7rem;
   padding-left: 0.625rem;
 
   p {
     margin-bottom: 0.125rem;
+    line-height: 1.4;
+
+    span {
+      font-weight: bold;
+    }
   }
 `
