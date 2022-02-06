@@ -5,6 +5,7 @@ import { api } from '../services/api'
 import { ContainerHighlight, ContentHighlight, Title } from './styles'
 import Slider from 'react-slick'
 import { CardHighlight } from '../components/CardHighlight'
+import { Footer } from '../components/Footer'
 
 type NewEpisodes = {
   id: number
@@ -59,13 +60,15 @@ export default function Home({ newEpisodes }: HomeProps) {
         </ContentHighlight>
       </ContainerHighlight>
       <NewEpisodes newEpisodes={newEpisodes} />
+
+      <Footer />
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const newEpisodesResponse = await api.get<NewEpisodes[]>(
-    `episodios?_sort=id&_order=desc&_page=1&_limit=4`
+    `episodios?_sort=id&_order=desc&_page=1&_limit=8`
   )
 
   const newEpisodes = newEpisodesResponse.data.map(episode => {

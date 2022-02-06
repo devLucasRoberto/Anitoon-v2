@@ -28,6 +28,7 @@ export const MoreButton = styled.button<MoreButton>`
   font-weight: 500;
   display: ${props => !props.haveEpisodes && 'none'};
   transition: color 0.2s;
+  cursor: pointer;
 
   &:hover {
     color: var(--white);
