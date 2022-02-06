@@ -8,7 +8,8 @@ import {
   OverlayCloseMore,
   MoreContent,
   Box,
-  BoxSS
+  BoxSS,
+  CloseSearch
 } from './styles'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -18,6 +19,7 @@ import { Search } from '../Search'
 
 export function Header() {
   const [more, setMore] = useState<boolean>(false)
+  const [show, setShow] = useState(false)
 
   return (
     <Container>
@@ -73,7 +75,8 @@ export function Header() {
           </Nav>
 
           <BoxSS>
-            <Search />
+            {show && <CloseSearch onClick={() => setShow(false)} />}
+            <Search show={show} setShow={setShow} />
             <SocialNetworks />
           </BoxSS>
         </Box>
