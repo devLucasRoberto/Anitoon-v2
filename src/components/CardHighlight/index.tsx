@@ -1,42 +1,59 @@
 import Link from 'next/link'
 import { Container, Img, Info, Title, HoverInfo } from './styles'
 
-export function CardHighlight() {
+interface CardHighlightProps {
+  data: {
+    id: number
+    slug: string
+    title: string
+    generos: string
+    episodios: number
+    status_atual: string
+    autor: string
+    estudio: string
+    tipo: string
+    temporada: string
+    data_de_exibicao: string
+    nota: string
+    img: string
+  }
+}
+
+export function CardHighlight({ data }: CardHighlightProps) {
   return (
     <Container>
       <Link href="/" passHref>
         <a>
-          <Img src="img/one-piece.png" alt="" />
+          <Img src={`img/${data.img}`} alt={data.title} />
           <Info>
-            <Title>One Piece</Title>
+            <Title>{data.title}</Title>
             <HoverInfo>
               <p>
-                <span>Gêneros:</span> Ação, Aventura, Comédia, Drama, Fantasia,
-                Shounen, Super Poder
+                <span>Gêneros:</span> {data.generos}
               </p>
               <p>
-                <span>Episódios:</span> 1001{' '}
+                <span>Episódios:</span> {data.episodios}
               </p>
               <p>
-                <span>Status Atual:</span> Em Exibição{' '}
+                <span>Status Atual:</span> {data.status_atual}
               </p>
               <p>
-                <span>Autor:</span> Eiichiro Oda{' '}
+                <span>Autor:</span> {data.autor}
               </p>
               <p>
-                <span>Estúdio:</span> Toei Animation{' '}
+                <span>Estúdio:</span> {data.estudio}
               </p>
               <p>
-                <span>Tipo:</span> Dublado e Legendado{' '}
+                <span>Tipo:</span> {data.tipo}
               </p>
               <p>
-                <span>Temporada:</span> Outono{' '}
+                <span>Temporada:</span> {data.temporada}
               </p>
               <p>
-                <span>Data de Exibição:</span> 20 de out. de 1999{' '}
+                <span>Data de Exibição:</span> {data.data_de_exibicao}
               </p>
               <p>
-                <span>Nota:</span>  8.61 (891.6 mil votos)
+                <span>Nota:</span> {data.nota}
               </p>
             </HoverInfo>
           </Info>

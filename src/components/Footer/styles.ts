@@ -14,11 +14,13 @@ export const Content = styled.div`
 `
 export const P = styled.div`
   margin-top: 6px;
+  font-size: normal;
 
   a {
     text-decoration: none;
     color: var(--white);
     transition: color 0.2s;
+    font-weight: bold;
 
     &:hover {
       color: var(--pink);

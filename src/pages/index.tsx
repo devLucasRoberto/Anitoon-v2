@@ -19,11 +19,28 @@ type NewEpisodes = {
   createdAt: number
 }
 
-interface HomeProps {
-  newEpisodes: NewEpisodes[]
+type Highlights = {
+  id: number
+  slug: string
+  title: string
+  generos: string
+  episodios: number
+  status_atual: string
+  autor: string
+  estudio: string
+  tipo: string
+  temporada: string
+  data_de_exibicao: string
+  nota: string
+  img: string
 }
 
-export default function Home({ newEpisodes }: HomeProps) {
+interface HomeProps {
+  newEpisodes: NewEpisodes[]
+  highlights: Highlights[]
+}
+
+export default function Home({ newEpisodes, highlights }: HomeProps) {
   var settings = {
     infinite: true,
     autoplay: true,
@@ -38,24 +55,11 @@ export default function Home({ newEpisodes }: HomeProps) {
         <Title>Destaques</Title>
         <ContentHighlight>
           <Slider {...settings}>
-            <div>
-              <CardHighlight />
-            </div>
-            <div>
-              <CardHighlight />
-            </div>
-            <div>
-              <CardHighlight />
-            </div>
-            <div>
-              <CardHighlight />
-            </div>
-            <div>
-              <CardHighlight />
-            </div>
-            <div>
-              <CardHighlight />
-            </div>
+            {highlights.map(highlight => (
+              <div>
+                <CardHighlight data={highlight} />
+              </div>
+            ))}
           </Slider>
         </ContentHighlight>
       </ContainerHighlight>
@@ -69,6 +73,10 @@ export default function Home({ newEpisodes }: HomeProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const newEpisodesResponse = await api.get<NewEpisodes[]>(
     `episodios?_sort=id&_order=desc&_page=1&_limit=8`
+  )
+
+  const highlightsResponse = await api.get<Highlights[]>(
+    `animes?highlight=true`
   )
 
   const newEpisodes = newEpisodesResponse.data.map(episode => {
@@ -89,8 +97,26 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   })
 
+  const highlights = highlightsResponse.data.map(ep => {
+    return {
+      id: ep.id,
+      slug: ep.slug,
+      title: ep.title,
+      generos: ep.generos,
+      episodios: ep.episodios,
+      status_atual: ep.status_atual,
+      autor: ep.autor,
+      estudio: ep.estudio,
+      tipo: ep.tipo,
+      temporada: ep.temporada,
+      data: ep.data_de_exibicao,
+      nota: ep.nota,
+      img: ep.img
+    }
+  })
+
   return {
-    props: { newEpisodes },
+    props: { newEpisodes, highlights },
     revalidate: 60 * 10 // 10 minute
   }
 }
