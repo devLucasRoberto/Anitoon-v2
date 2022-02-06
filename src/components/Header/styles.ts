@@ -55,13 +55,13 @@ export const MoreButton = styled.button`
 `
 
 interface IconMoreProps {
-  more: boolean
+  more: string
 }
 
 export const IconMore = styled(FiMoreVertical)<IconMoreProps>`
   height: 1.5rem;
   width: 1.5rem;
-  color: var(${props => (props.more ? '--pink' : '--white')});
+  color: var(${props => props.more});
   transition: color 0.2s;
 
   &:hover {

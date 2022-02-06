@@ -17,7 +17,7 @@ import { SocialNetworks } from '../SocialNetworks'
 import { Search } from '../Search'
 
 export function Header() {
-  const [more, setMore] = useState(false)
+  const [more, setMore] = useState<boolean>(false)
 
   return (
     <Container>
@@ -45,7 +45,7 @@ export function Header() {
 
             <div>
               <MoreButton onClick={() => setMore(true)}>
-                <IconMore more={more} />
+                <IconMore more={more ? '--pink' : '--white'} />
               </MoreButton>
               {more && (
                 <>
