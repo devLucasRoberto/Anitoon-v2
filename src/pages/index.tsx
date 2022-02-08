@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next'
 import { Header } from '../components/Header'
 import { NewEpisodes } from '../components/NewEpisodes'
 import { api } from '../services/api'
-import { ContainerHighlight, ContentHighlight, Title } from './styles'
+import { Section, ContainerHighlight, ContentHighlight, Title } from './styles'
 import Slider from 'react-slick'
 import { CardHighlight } from '../components/CardHighlight'
 import { Footer } from '../components/Footer'
@@ -51,19 +51,21 @@ export default function Home({ newEpisodes, highlights }: HomeProps) {
   return (
     <>
       <Header />
-      <ContainerHighlight>
-        <Title>Destaques</Title>
-        <ContentHighlight>
-          <Slider {...settings}>
-            {highlights.map(highlight => (
-              <div>
-                <CardHighlight key={highlight.id} data={highlight} />
-              </div>
-            ))}
-          </Slider>
-        </ContentHighlight>
-      </ContainerHighlight>
-      <NewEpisodes newEpisodes={newEpisodes} />
+      <Section>
+        <ContainerHighlight>
+          <Title>Destaques</Title>
+          <ContentHighlight>
+            <Slider {...settings}>
+              {highlights.map(highlight => (
+                <div>
+                  <CardHighlight key={highlight.id} data={highlight} />
+                </div>
+              ))}
+            </Slider>
+          </ContentHighlight>
+        </ContainerHighlight>
+        <NewEpisodes newEpisodes={newEpisodes} />
+      </Section>
 
       <Footer />
     </>

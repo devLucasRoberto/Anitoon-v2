@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const Section = styled.div`
+  min-height: calc(100vh - 164px);
+`
+
 export const ContainerHighlight = styled.div`
   margin: 4.5rem auto 0 auto;
   max-width: 73.125rem;

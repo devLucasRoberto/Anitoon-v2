@@ -24,7 +24,7 @@ import { Search } from '../Search'
 export function Header() {
   const [more, setMore] = useState<boolean>(false)
   const [show, setShow] = useState(false)
-  const [menu, setMenu] = useState(true)
+  const [menu, setMenu] = useState(false)
 
   return (
     <Container>
