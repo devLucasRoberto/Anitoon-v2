@@ -12,14 +12,30 @@ import {
   Info
 } from './styles'
 
+type AnimeData = {
+  id: number
+  slug: string
+  title: string
+  generos: string
+  episodios: number
+  status_atual: string
+  autor: string
+  estudio: string
+  tipo: string
+  temporada: string
+  data_de_exibicao: string
+  nota: string
+  img: string
+}
 interface SearchProps {
   show: boolean
   setShow: (value: boolean) => void
+  animeData: AnimeData[]
 }
 
-export function Search({ show, setShow }: SearchProps) {
+export function Search({ show, setShow, animeData }: SearchProps) {
   const [value, setValue] = useState<string>('')
-  const [searchResult, setSearchResult] = useState([])
+  const [searchResult, setSearchResult] = useState<typeof animeData>([])
 
   const debounced = useDebouncedCallback(value => {
     setValue(value)
@@ -49,39 +65,39 @@ export function Search({ show, setShow }: SearchProps) {
       />
 
       <ContainerSearch show={show ? 'block' : 'none'}>
-        {searchResult.map(animes => (
-          <ContentSearch>
-            <Link href="/" passHref>
+        {searchResult.map(anime => (
+          <ContentSearch key={anime.id}>
+            <Link href={`/anime/${anime.slug}`} passHref>
               <a>
-                <Img src="img/one-piece.png" alt="one-piece" />
+                <Img src={`img/${anime.img}`} alt={anime.title} />
 
                 <Info>
                   <p>
-                    <span>Nome:</span> One Piece
+                    <span>Nome:</span> {anime.title}
                   </p>
                   <p>
-                    <span>Episódios:</span> 1001
+                    <span>Episódios:</span> {anime.episodios}
                   </p>
                   <p>
-                    <span>Status Atual:</span> Em Exibição
+                    <span>Status Atual:</span> {anime.status_atual}
                   </p>
                   <p>
-                    <span>Autor:</span> Eiichiro Oda
+                    <span>Autor:</span> {anime.autor}
                   </p>
                   <p>
-                    <span>Estúdio:</span> Toei Animation
+                    <span>Estúdio:</span> {anime.estudio}
                   </p>
                   <p>
-                    <span>Tipo:</span> Dublado e Legendado
+                    <span>Tipo:</span> {anime.tipo}
                   </p>
                   <p>
-                    <span>Temporada:</span> Outono
+                    <span>Temporada:</span> {anime.temporada}
                   </p>
                   <p>
-                    <span>Data de Exibição:</span> 20 de out. de 1999
+                    <span>Data de Exibição:</span> {anime.data_de_exibicao}
                   </p>
                   <p>
-                    <span>Nota:</span>  8.61 (891.6 mil votos)
+                    <span>Nota:</span> {anime.nota}
                   </p>
                 </Info>
               </a>

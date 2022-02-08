@@ -57,7 +57,7 @@ export default function Home({ newEpisodes, highlights }: HomeProps) {
           <Slider {...settings}>
             {highlights.map(highlight => (
               <div>
-                <CardHighlight data={highlight} />
+                <CardHighlight key={highlight.id} data={highlight} />
               </div>
             ))}
           </Slider>
