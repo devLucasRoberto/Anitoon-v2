@@ -6,7 +6,6 @@ import {
   Container,
   Input,
   ContainerSearch,
-  Loading,
   ContentSearch,
   Img,
   Info

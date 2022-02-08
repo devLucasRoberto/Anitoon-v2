@@ -1,7 +1,11 @@
 import {
   Container,
   Content,
+  BoxLogo,
   Logo,
+  OpenMenuMobile,
+  IconOpenMenu,
+  IconCloseMenu,
   Nav,
   MoreButton,
   IconMore,
@@ -20,16 +24,32 @@ import { Search } from '../Search'
 export function Header() {
   const [more, setMore] = useState<boolean>(false)
   const [show, setShow] = useState(false)
+  const [menu, setMenu] = useState(true)
 
   return (
     <Container>
       <Content>
-        <Logo>
-          <Link href="/">
-            <a>Anitoon</a>
-          </Link>
-        </Logo>
-        <Box>
+        <BoxLogo>
+          <Logo>
+            <Link href="/">
+              <a>Anitoon</a>
+            </Link>
+          </Logo>
+
+          <OpenMenuMobile>
+            {menu ? (
+              <button onClick={() => setMenu(false)}>
+                <IconCloseMenu />
+              </button>
+            ) : (
+              <button onClick={() => setMenu(true)}>
+                <IconOpenMenu />
+              </button>
+            )}
+          </OpenMenuMobile>
+        </BoxLogo>
+        <Box menu={menu ? '' : 'none'}>
+          {menu && <Search show={show} setShow={setShow} />}
           <Nav>
             <ul>
               <NavLink href="/" name="Início" activeLink />
@@ -38,11 +58,31 @@ export function Header() {
                 name="Lista de animes"
                 activeLink
               />
-              <NavLink
-                href="/temporada"
-                name="Animes da Temporada"
-                activeLink
-              />
+              {menu && (
+                <>
+                  {/* ONLY NAV MOBILE | MORE MENU */}
+                  <NavLink
+                    href="/temporada"
+                    name="Animes da Temporada"
+                    activeLink
+                  />
+                  <NavLink
+                    href="/temporada"
+                    name="Animes da Temporada"
+                    activeLink
+                  />
+                  <NavLink
+                    href="/temporada"
+                    name="Animes da Temporada"
+                    activeLink
+                  />
+                  <NavLink
+                    href="/temporada"
+                    name="Animes da Temporada"
+                    activeLink
+                  />
+                </>
+              )}
             </ul>
 
             <div>
@@ -68,6 +108,11 @@ export function Header() {
                       name="Animes da Temporada"
                       activeLink
                     />
+                    <NavLink
+                      href="/temporada"
+                      name="Animes da Temporada"
+                      activeLink
+                    />
                   </MoreContent>
                 </>
               )}
@@ -76,7 +121,7 @@ export function Header() {
 
           <BoxSS>
             {show && <CloseSearch onClick={() => setShow(false)} />}
-            <Search show={show} setShow={setShow} />
+            {!menu && <Search show={show} setShow={setShow} />}
             <SocialNetworks />
           </BoxSS>
         </Box>

@@ -9,6 +9,11 @@ export const Container = styled.div`
   input {
     z-index: 11;
   }
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 `
 
 export const Input = styled.input`
@@ -51,11 +56,11 @@ export const ContainerSearch = styled.div<ContainerSearchProps>`
     border-radius: 20px;
     border: 2px solid var(--gray-900);
   }
-`
-export const Loading = styled.div`
-  width: 100%;
-  text-align: center;
-  padding: 0.625rem;
+
+  @media (max-width: 500px) {
+    width: 20rem;
+    height: 20rem;
+  }
 `
 
 export const CloseSearch = styled.div`

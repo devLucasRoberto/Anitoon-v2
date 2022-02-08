@@ -1,9 +1,15 @@
 import Link from 'next/link'
-import { DiscordIcon, TwitterIcon, InstagramIcon, FacebookIcon } from './styles'
+import {
+  Container,
+  DiscordIcon,
+  TwitterIcon,
+  InstagramIcon,
+  FacebookIcon
+} from './styles'
 
 export function SocialNetworks() {
   return (
-    <div>
+    <Container>
       <Link href="/" passHref>
         <DiscordIcon />
       </Link>
@@ -16,6 +22,6 @@ export function SocialNetworks() {
       <Link href="/" passHref>
         <FacebookIcon />
       </Link>
-    </div>
+    </Container>
   )
 }
