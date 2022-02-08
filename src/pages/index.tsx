@@ -63,15 +63,12 @@ export default function Home({ newEpisodes, highlights }: HomeProps) {
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 375,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
         }
       }
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
     ]
   }
   return (
@@ -137,7 +134,7 @@ export const getStaticProps: GetStaticProps = async () => {
       estudio: ep.estudio,
       tipo: ep.tipo,
       temporada: ep.temporada,
-      data: ep.data_de_exibicao,
+      data_de_exibicao: ep.data_de_exibicao,
       nota: ep.nota,
       img: ep.img
     }
