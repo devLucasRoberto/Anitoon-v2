@@ -20,7 +20,6 @@ interface SearchProps {
 export function Search({ show, setShow }: SearchProps) {
   const [value, setValue] = useState<string>('')
   const [searchResult, setSearchResult] = useState([])
-  const [loading, setLoading] = useState(false)
 
   const debounced = useDebouncedCallback(value => {
     setValue(value)
@@ -50,7 +49,6 @@ export function Search({ show, setShow }: SearchProps) {
       />
 
       <ContainerSearch show={show ? 'block' : 'none'}>
-        {loading && <Loading>Carregando...</Loading>}
         {searchResult.map(animes => (
           <ContentSearch>
             <Link href="/" passHref>
