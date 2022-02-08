@@ -74,7 +74,7 @@ export default function Home({ newEpisodes, highlights }: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const newEpisodesResponse = await api.get<NewEpisodes[]>(
-    `episodios?_sort=id&_order=desc&_page=1&_limit=8`
+    `episodios?_sort=id&_order=desc&_page=1&_limit=12`
   )
 
   const highlightsResponse = await api.get<Highlights[]>(

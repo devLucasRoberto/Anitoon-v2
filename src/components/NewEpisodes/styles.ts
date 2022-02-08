@@ -17,6 +17,18 @@ export const Content = styled.div`
   grid-template-columns: repeat(4, 1fr);
   column-gap: 1.875rem;
   row-gap: 0.812rem;
+
+  @media (max-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 425px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `
 interface MoreButton {
   haveEpisodes?: boolean
