@@ -13,29 +13,30 @@ import {
 } from './styles'
 
 type AnimeData = {
-  id: number
-  slug: string
-  title: string
-  generos: string
-  episodios: number
-  status_atual: string
-  autor: string
-  estudio: string
-  tipo: string
-  temporada: string
-  data_de_exibicao: string
-  nota: string
-  img: string
+  data: Array<{
+    id: number
+    slug: string
+    title: string
+    generos: string
+    episodios: number
+    status_atual: string
+    autor: string
+    estudio: string
+    tipo: string
+    temporada: string
+    data_de_exibicao: string
+    nota: string
+    img: string
+  }>
 }
 interface SearchProps {
   show: boolean
   setShow: (value: boolean) => void
-  animeData: AnimeData[]
 }
 
-export function Search({ show, setShow, animeData }: SearchProps) {
+export function Search({ show, setShow }: SearchProps, { data }: AnimeData) {
   const [value, setValue] = useState<string>('')
-  const [searchResult, setSearchResult] = useState<typeof animeData>([])
+  const [searchResult, setSearchResult] = useState<typeof data>([])
 
   const debounced = useDebouncedCallback(value => {
     setValue(value)
@@ -44,7 +45,7 @@ export function Search({ show, setShow, animeData }: SearchProps) {
   useEffect(() => {
     if (value !== '') {
       api
-        .get(`animes?q=${value}`)
+        .get<typeof data>(`animes?q=${value}`)
         .then(response => setSearchResult(response.data))
     }
   }, [value])
