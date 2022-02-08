@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Info = styled.div`
   position: absolute;
-  text-align: center;
   padding: 0.625rem 0.9375rem;
   z-index: 1;
   width: 100%;
@@ -55,4 +54,12 @@ export const Title = styled.h1`
   font-size: 1.25rem;
   font-weight: 500;
   color: var(--white);
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `
