@@ -6,6 +6,7 @@ import { Section, ContainerHighlight, ContentHighlight, Title } from './styles'
 import Slider from 'react-slick'
 import { CardHighlight } from '../components/CardHighlight'
 import { Footer } from '../components/Footer'
+import Head from 'next/head'
 
 type NewEpisodes = {
   id: number
@@ -73,6 +74,9 @@ export default function Home({ newEpisodes, highlights }: HomeProps) {
   }
   return (
     <>
+      <Head>
+        <title>Home | Anitton</title>
+      </Head>
       <Header />
       <Section>
         <ContainerHighlight>

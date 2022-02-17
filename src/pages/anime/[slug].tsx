@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next'
 import { Params } from 'next/dist/server/router'
+import Head from 'next/head'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { NewEpisodes } from '../../components/NewEpisodes'
@@ -44,6 +45,9 @@ interface AnimeProps {
 export default function Anime({ newEpisodes, anime }: AnimeProps) {
   return (
     <>
+      <Head>
+        <title>{anime[0].title} | Anitton</title>
+      </Head>
       <Header />
       <NewEpisodes
         title="Episódios"
