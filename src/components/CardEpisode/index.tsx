@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import {
   Container,
   Box,
@@ -28,12 +29,14 @@ interface CardEpisodeProps {
 }
 
 export function CardEpisode({ episode }: CardEpisodeProps) {
+  const { basePath } = useRouter()
+
   return (
     <Container>
       <Link href={`videos/${episode.slug}`} passHref>
         <a>
           <Box>
-            <Img src={`img/${episode.img}`} alt={episode.title} />
+            <Img src={`${basePath}/img/${episode.img}`} alt={episode.title} />
             <PlayBox>
               <PlayIcon />
             </PlayBox>

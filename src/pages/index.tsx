@@ -87,7 +87,7 @@ export default function Home({ newEpisodes, highlights }: HomeProps) {
             </Slider>
           </ContentHighlight>
         </ContainerHighlight>
-        <NewEpisodes newEpisodes={newEpisodes} />
+        <NewEpisodes title="Lançamentos" newEpisodes={newEpisodes} />
       </Section>
 
       <Footer />

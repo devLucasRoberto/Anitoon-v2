@@ -15,9 +15,11 @@ interface NewEpisodesProps {
     img: string
     createdAt: number
   }>
+  title: string
+  animeId?: number
 }
 
-export function NewEpisodes({ newEpisodes }: NewEpisodesProps) {
+export function NewEpisodes({ newEpisodes, title, animeId }: NewEpisodesProps) {
   const [episodes, setEpisodes] = useState(newEpisodes)
   const [page, setPage] = useState(2)
   const [loading, setLoading] = useState(false)
@@ -26,8 +28,14 @@ export function NewEpisodes({ newEpisodes }: NewEpisodesProps) {
   async function handlePagination() {
     setLoading(true)
 
+    function type() {
+      if (animeId) {
+        return `&animeId=${animeId}`
+      }
+    }
+
     const newEpisodesResponse = await api.get(
-      `episodios?_sort=id&_order=desc&_page=${page}&_limit=4`
+      `episodios?_sort=id&_order=desc&_page=${page}&_limit=4${type()}`
     )
 
     if (newEpisodesResponse.data.length > 0) {
@@ -60,7 +68,7 @@ export function NewEpisodes({ newEpisodes }: NewEpisodesProps) {
 
   return (
     <Container>
-      <Title>Lançamentos</Title>
+      <Title>{title}</Title>
       <Content>
         {episodes.map(episode => (
           <CardEpisode key={episode.id} episode={episode} />
