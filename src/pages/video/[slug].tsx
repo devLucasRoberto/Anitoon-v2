@@ -1,3 +1,3 @@
-export function Video() {
-  return <h1>episodio</h1>
+export default function Video() {
+  return <h1>Video do episodio</h1>
 }
